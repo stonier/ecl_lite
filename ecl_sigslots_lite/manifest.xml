@@ -1,0 +1,19 @@
+<package>
+  <description brief="A very light sigslots implementation for embedded development">
+
+     This avoids use of dynamic storage (malloc/new) and thread safety (mutexes) to
+     provide a very simple sigslots implementation that can be used for *very*
+     embedded development.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <export>
+    <cpp cflags="-I${prefix}/include"/>
+  </export>
+</package>

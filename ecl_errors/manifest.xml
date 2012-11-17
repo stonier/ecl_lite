@@ -1,0 +1,30 @@
+<package>
+  <description brief="Error mechanisms for debugging.">
+
+    This library provides lean and mean error mechanisms. 
+    It includes c style error functions as well as a few 
+    useful macros. For higher level mechanisms, 
+	refer to ecl_exceptions.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  <export>
+    <cpp cflags="-I${prefix}/include" lflags="-Wl,-rpath,${prefix}/lib -L${prefix}/lib -lecl_errors"/>
+  </export>
+	
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <depend package="ecl_config"/>
+  <rosbuild2>
+    <export>
+      <include_dir>${ecl_errors_SOURCE_DIR}/include</include_dir>
+      <!--lib>ecl_errors</lib-->
+    </export>
+    <depend package="ecl_license"/>
+    <depend package="ecl_build"/>
+    <depend package="ecl_config"/>
+  </rosbuild2>
+</package>

@@ -1,0 +1,27 @@
+<package>
+  <description brief="System configuration macros, types and sniffer functions.">
+
+     These tools inspect and describe your system with macros, types 
+     and functions.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  
+  <export>
+    <cpp cflags="-I${prefix}/include"/>
+    <rosdoc config="rosdoc.yaml" />
+  </export>
+  
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <rosbuild2>
+    <export>
+      <include_dir>${ecl_config_SOURCE_DIR}/include</include_dir>
+    </export>
+    <depend package="ecl_license"/>
+    <depend package="ecl_build"/>
+  </rosbuild2>
+</package>

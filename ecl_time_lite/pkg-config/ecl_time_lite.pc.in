@@ -1,0 +1,14 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+
+Name: ecl_time_lite
+Description: Embedded control library, cross-platform functionality for low-level time api.
+Version: @PROJECT_VERSION@
+URL: http://code.google.com/p/embedded-control-library/
+
+Requires: ecl_license, ecl_build, ecl_config, ecl_errors
+includedir=${prefix}/include
+libdir=${exec_prefix}/lib
+Libs: -L${libdir} -lecl_time_lite
+Libs.private: @PRIVATE_LIBS@
+Cflags: -I${includedir}

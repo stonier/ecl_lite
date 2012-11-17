@@ -1,0 +1,27 @@
+<stack>
+  <description brief="low level api and firmware utilities">
+
+    <p>
+       The ecl-lite stack includes packages with few dependencies on either system
+       or c++ functionality. This makes it ideal for very embedded builds where
+       many of the usual mechanisms are unavailable.
+    </p>
+    <ul>
+      <li>No malloc/new</li>
+      <li>No exceptions</li>
+      <li>Minimal templates</li>
+    </ul>
+    <p>
+       It also includes a few packages which standardise lower level
+       api (e.g. posix/win32) with drop-ins to make them properly cross-platform,
+    </p>
+
+</description>
+  <author>Maintained by Daniel Stonier and 이재영.</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ecl_lite</url>
+  <depend stack="ecl_tools" /> <!-- ecl_build, ecl_license -->
+  <depend stack="ros" />
+
+</stack>

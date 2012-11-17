@@ -1,0 +1,19 @@
+<package>
+  <description brief="Simple c style library for type conversions">
+
+     These are a very simple version of some of the functions in ecl_converters suitable for
+     firmware development. That is, there is no use of new, templates or exceptions.
+
+  </description>
+  <author>Daniel Stonier (d.stonier@gmail.com)</author>
+  <license>BSD</license>
+  <review status="doc reviewed" notes=""/>
+  <url>http://snorriheim.dnsdojo.com/redmine/wiki/ecl</url>
+  
+  <depend package="ecl_license"/>
+  <depend package="ecl_build"/>
+  <depend package="ecl_config"/>
+  <export>
+    <cpp cflags="-I${prefix}/include"/>
+  </export>
+</package>
