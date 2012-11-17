@@ -10,8 +10,9 @@ macro(ecl_add_io_example exe)
   else()
     set(SOCK_LIBS ${PROJECT_NAME})
   endif()
-  ecl_add_example(${exe} ${ARGN})
+  add_executable(${exe} ${ARGN})
   target_link_libraries(${exe} ${SOCK_LIBS})
+  install(TARGETS ${exe} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 endmacro()
 
 ##############################################################################
