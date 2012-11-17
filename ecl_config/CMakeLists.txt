@@ -22,9 +22,7 @@ catkin_package(
 ##############################################################################
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ecl_build_DIR}/modules)
-include(ecl_package)
 include(ecl_platform_detection)
-ecl_version()
 ecl_detect_platform()
 ecl_summary_platform()
 
