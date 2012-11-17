@@ -2,4 +2,5 @@
 # Files
 ##############################################################################
 
-ecl_add_example(sigslots sigslots.cpp)
+add_executable(demo_sigslots sigslots.cpp)
+install(TARGETS demo_sigslots RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
