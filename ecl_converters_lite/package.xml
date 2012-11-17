@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>ecl_converters_lite</name>
+  <version>0.5.0</version>
+  <description>
+     These are a very simple version of some of the functions in ecl_converters 
+     suitable for firmware development. That is, there is no use of new, 
+     templates or exceptions.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://wiki.ros.org/ecl_converters_lite</url>
+  <url type="repository">https://github.com/stonier/ecl_lite</url>
+  <url type="bugtracker">https://github.com/stonier/ecl_lite/issues</url>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
+
+  <build_depend>catkin</build_depend>
+  <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_config</build_depend>
+</package>
+
+
