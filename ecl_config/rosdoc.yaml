@@ -1,3 +1,0 @@
- - builder: rosmake
- - builder: doxygen
-   file_patterns: '*.hpp *.cpp *.dox'
