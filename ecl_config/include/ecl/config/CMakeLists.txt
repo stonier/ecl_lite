@@ -70,4 +70,13 @@ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CMAKE_CURRENT_SOURCE_DIR
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
 
 install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
-
+# If we want to supply the version number in major/minor/patch
+# split version in parts and pass to extra file
+#string(REPLACE "." ";" roscpp_VERSION_LIST "${roscpp_VERSION}")
+#list(LENGTH roscpp_VERSION_LIST _count)
+#if(NOT _count EQUAL 3)
+#  message(FATAL_ERROR "roscpp version '${roscpp_VERSION}' does not match 'MAJOR.MINOR.PATCH' pattern")
+#endif()
+#list(GET roscpp_VERSION_LIST 0 roscpp_VERSION_MAJOR)
+#list(GET roscpp_VERSION_LIST 1 roscpp_VERSION_MINOR)
+#list(GET roscpp_VERSION_LIST 2 roscpp_VERSION_PATCH)
