@@ -71,6 +71,8 @@ namespace ecl {
 #endif
 #if ECL_SIZE_OF_DOUBLE == 8
 	typedef double float64; /**< @brief An alias for the platform's 64 bit float type. **/
+#elif ECL_SIZE_OF_LONG_DOUBLE == 8
+	typedef long double float64; /**< @brief An alias for the platform's 64 bit float type. **/
 #else
 	#error "ecl::float64 could not be typedef'd (probably faulty ecl logic)."
 #endif
