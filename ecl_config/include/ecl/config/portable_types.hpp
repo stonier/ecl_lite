@@ -79,7 +79,9 @@ namespace ecl {
 #elif ECL_SIZE_OF_LONG_DOUBLE == 16
 	typedef long double float128; /**< @brief An alias for the platform's 128 bit float type. **/
 #else
-	#error "ecl::float96 could not be typedef'd (probably faulty ecl logic)."
+	#define ECL_LONG_DOUBLE_UNDEFINED
+	#define ECL_LONG_LONG_DOUBLE_UNDEFINED
+	//#error "ecl::float96 could not be typedef'd (probably faulty ecl logic)."
 #endif
 
 } // namespace ecl
