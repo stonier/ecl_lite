@@ -7,14 +7,14 @@
      low level input-output functions. These are gathered here and re-represented 
      with a cross platform set of functions.
   </description>
+  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
   <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
   <license>BSD</license>
   <url type="website">http://wiki.ros.org/ecl_io</url>
   <url type="repository">https://github.com/stonier/ecl_lite</url>
   <url type="bugtracker">https://github.com/stonier/ecl_lite/issues</url>
-  <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
 
-  <build_depend>catkin</build_depend>
+  <buildtool_depend>catkin</buildtool_depend>
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
