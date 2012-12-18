@@ -15,7 +15,7 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include "../../include/ecl/time_lite/config.hpp"
+#include <ecl/time_lite/config.hpp>
 #include "../../include/ecl/time_lite/functions.hpp"
 #include "../../include/ecl/time_lite/cpu_time.hpp"
 

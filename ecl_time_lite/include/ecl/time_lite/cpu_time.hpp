@@ -18,7 +18,7 @@
 
 #include "errors.hpp"
 #include "types.hpp"
-#include "config.hpp"
+#include <ecl/time_lite/config.hpp>
 #include <ecl/config/macros.hpp>
 
 /*****************************************************************************

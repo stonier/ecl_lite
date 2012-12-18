@@ -18,7 +18,7 @@
 ** Cross Platform Configuration
 *****************************************************************************/
 
-#include "config.hpp"
+#include <ecl/time_lite/config.hpp>
 
 #if defined(ECL_HAS_MAC_TIMERS)
 

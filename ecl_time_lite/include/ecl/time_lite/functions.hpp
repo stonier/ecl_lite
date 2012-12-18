@@ -25,7 +25,7 @@
 
 #include <ctime>
 #include <ecl/config/macros.hpp>
-#include "config.hpp"
+#include <ecl/time_lite/config.hpp>
 
 /*****************************************************************************
 ** Includes
