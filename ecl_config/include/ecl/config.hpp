@@ -20,7 +20,7 @@
 ** Includes
 *****************************************************************************/
 
-#include "config/ecl.hpp"
+#include <ecl/config/ecl.hpp>
 #include "config/macros.hpp"
 #include "config/portable_types.hpp"
 #include "config/endianness.hpp"
