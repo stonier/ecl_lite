@@ -16,7 +16,7 @@
 ** Win32
 *****************************************************************************/
 
-#include "ecl.hpp"
+#include <ecl/config/ecl.hpp>
 
 #if defined(ECL_IS_WIN32)
     #include <windows.h>

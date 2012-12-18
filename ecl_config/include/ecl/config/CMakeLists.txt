@@ -61,7 +61,7 @@ endif()
 # GENERATE HEADER
 ###############################################################################
 
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/config/ecl.hpp)
 
 ###############################################################################
 # FILES
@@ -69,6 +69,7 @@ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CMAKE_CURRENT_SOURCE_DIR
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
 
+install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/config/ecl.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
 install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
 # If we want to supply the version number in major/minor/patch
 # split version in parts and pass to extra file
