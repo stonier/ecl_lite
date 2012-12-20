@@ -10,8 +10,9 @@ project(ecl_config)
 ##############################################################################
 
 find_package(catkin REQUIRED COMPONENTS ecl_build)
+file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
 catkin_package(
-	INCLUDE_DIRS include
+	INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/include
 	)
 
 ##############################################################################
@@ -21,6 +22,7 @@ catkin_package(
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ecl_build_DIR}/modules)
 include(ecl_platform_detection)
 ecl_detect_platform()
+include_directories(${CATKIN_DEVEL_PREFIX}/include)
 
 ##############################################################################
 # Actual project configuration
