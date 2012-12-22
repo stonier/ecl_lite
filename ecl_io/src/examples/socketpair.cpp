@@ -11,9 +11,10 @@
 *****************************************************************************/
 
 #include <iostream>
+#include <cstdlib>
+#include <unistd.h>
 #include <ecl/config/ecl.hpp>
 #include <ecl/errors/handlers.hpp>
-#include <cstdlib>
 #include "../../include/ecl/io/socketpair.hpp"
 
 /*****************************************************************************

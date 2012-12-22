@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <unistd.h>
 #include <ecl/config/ecl.hpp>
 #include <ecl/errors/handlers.hpp>
 #include "../../include/ecl/io/poll.hpp"

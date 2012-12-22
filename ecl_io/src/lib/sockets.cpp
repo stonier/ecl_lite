@@ -10,6 +10,7 @@
 ** Includes
 *****************************************************************************/
 
+#include <unistd.h>
 #include <cstring>
 #include <ecl/config/ecl.hpp>
 #include <ecl/errors/handlers.hpp>
