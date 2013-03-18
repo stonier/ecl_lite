@@ -4,6 +4,7 @@
 
   @section Changes
 
+    - <b>Mar 13</b> : msvc port.
 	- <b>Nov 12</b> : catkinized.
 	- <b>Mar 11</b> : added compile and runtime checks to detect the platform dependant typedef of char.
 	- <b>Feb 11</b> : added a macro allowing for custom ecl configurations to be hand crafted.

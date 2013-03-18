@@ -55,7 +55,7 @@ namespace ecl {
  * Alternatively the class can be inherited and the verbose messages overloaded.
  * Refer to the TimeError class in ecl_time_lite for an example.
  */
-class ECL_PUBLIC Error {
+class ecl_errors_PUBLIC Error {
 public:
 	/**
 	 * @brief Configure the return type with an error flag.

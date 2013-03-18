@@ -50,10 +50,9 @@ ENDIF( PLATFORM_IS_32_BIT )
 ###################################
 # Library type
 ###################################
-if(ROS_BUILD_SHARED_LIBS)
+if(BUILD_SHARED_LIBS)
   set(ECL_HAS_SHARED_LIBS 1)
-endif()
-if(ROS_BUILD_STATIC_LIBS)
+else()
   set(ECL_HAS_STATIC_LIBS 1)
 endif()
   

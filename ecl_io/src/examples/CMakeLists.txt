@@ -11,8 +11,8 @@ macro(ecl_add_io_example exe)
     set(SOCK_LIBS ${PROJECT_NAME})
   endif()
   add_executable(${exe} ${ARGN})
-  target_link_libraries(${exe} ${SOCK_LIBS})
-  install(TARGETS ${exe} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+  target_link_libraries(ecl_${exe} ${SOCK_LIBS})
+  install(TARGETS ecl_${exe} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 endmacro()
 
 ##############################################################################

@@ -16,6 +16,7 @@
 ** Includes
 *****************************************************************************/
 
+#include "io/macros.hpp"
 #include "io/sockets.hpp"
 #include "io/socketpair.hpp"
 #include "io/poll.hpp"

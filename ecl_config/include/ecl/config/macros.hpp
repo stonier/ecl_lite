@@ -70,28 +70,16 @@
  * @}
  **/
 
-#if defined(ECL_IS_WIN32) || defined(ECL_IS_CYGWIN)
-  #define ECL_HELPER_IMPORT __declspec(dllimport)
-  #define ECL_HELPER_EXPORT __declspec(dllexport)
-  #define ECL_HELPER_LOCAL
-#else
-  #if defined(ECL_IS_POSIX) && __GNUC__ >= 4
-    #define ECL_HELPER_IMPORT __attribute__ ((visibility("default")))
-    #define ECL_HELPER_EXPORT __attribute__ ((visibility("default")))
-    #define ECL_HELPER_LOCAL  __attribute__ ((visibility("hidden")))
-  #else
-    #define ECL_HELPER_IMPORT
-    #define ECL_HELPER_EXPORT
-    #define ECL_HELPER_LOCAL
-  #endif
-#endif
 /**
- * @addtogroup Macros
- * @{
+ * @def ECL_HELPER_LOCAL
+ * @sa ECL_HELPER_EXPORT, ECL_HELPER_IMPORT
 **/
-
 /**
- * @def ECL_PUBLIC
+ * @def ECL_HELPER_IMPORT
+ * @sa ECL_HELPER_EXPORT, ECL_HELPER_LOCAL
+**/
+/**
+ * @def ECL_HELPER_EXPORT
  *
  * @brief Declare public visibility for libraries.
  *
@@ -111,41 +99,51 @@
  *
  * Usage:
  *
+ * Each package needs to create it's own macro to make use of
+ * the macro that cmake defines for library targets:
+ *
  * @code
- * extern "C" ECL_PUBLIC void function(int a);
- * class ECL_PUBLIC SomeClass {
+ * #ifdef ROS_BUILD_SHARED_LIBS // ros is being built around shared libraries
+ *   #ifdef ecl_common_EXPORTS // we are building a shared lib/dll
+ *     #define ecl_common_PUBLIC ROS_HELPER_EXPORT
+ *   #else // we are using shared lib/dll
+ *     #define ecl_common_PUBLIC ROS_HELPER_IMPORT
+ *   #endif
+ * #else // ros is being built around static libraries
+ *   #define ecl_common_DECL
+ * #endif
+ * @endcode
+ *
+ * And use it alongside class or function definitions:
+ *
+ * @code
+ * extern "C" ecl_common_PUBLIC void function(int a);
+ * class ecl_common_PUBLIC SomeClass {
  *     int c;
- *     ECL_LOCAL void privateMethod();  // Only for use within this DSO
+ *     ecl_common_LOCAL void privateMethod();  // Only for use within this DSO
  * public:
  *     Person(int _c) : c(_c) { }
  *     static void foo(int a);
  * };
  * @endcode
  *
- * @sa ECL_LOCAL
+ * @sa ECL_HELPER_IMPORT, ECL_HELPER_LOCAL
 **/
-/**
- * @def ECL_LOCAL
- *
- * @brief Declare local visibility for libraries.
- *
- * @sa ECL_PUBLIC
- **/
 
-#ifdef ECL_HAS_SHARED_LIBS // defined if ecl is compiled as a shared library
-  #ifdef ECL_BUILDING_SHARED_LIB // defined if we are building the ecl lib (instead of using it)
-    #define ECL_PUBLIC ECL_HELPER_EXPORT
+#if defined(ECL_IS_WIN32) || defined(ECL_IS_CYGWIN)
+  #define ECL_HELPER_IMPORT __declspec(dllimport)
+  #define ECL_HELPER_EXPORT __declspec(dllexport)
+  #define ECL_HELPER_LOCAL
+#else
+  #if defined(ECL_IS_POSIX) && __GNUC__ >= 4
+    #define ECL_HELPER_IMPORT __attribute__ ((visibility("default")))
+    #define ECL_HELPER_EXPORT __attribute__ ((visibility("default")))
+    #define ECL_HELPER_LOCAL  __attribute__ ((visibility("hidden")))
   #else
-    #define ECL_PUBLIC ECL_HELPER_IMPORT
-  #endif // ECL_EXPORTS
-  #define ECL_LOCAL ECL_HELPER_LOCAL
-#else // defined if ecl is compiled as a static library
-  #define ECL_PUBLIC
-  #define ECL_LOCAL
+    #define ECL_HELPER_IMPORT
+    #define ECL_HELPER_EXPORT
+    #define ECL_HELPER_LOCAL
+  #endif
 #endif
-
-/**
- * @}
- **/
 
 #endif /* ECL_UTILITY_CONFIG_MACROS_HPP_ */

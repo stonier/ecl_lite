@@ -8,6 +8,11 @@ project(ecl_io)
 ##############################################################################
 # Catkin
 ##############################################################################
+if(MSVC)
+  find_library(socket_LIBRARIES ws2_32)
+else()
+  set(socket_LIBRARIES "")
+endif()
 
 find_package(catkin REQUIRED COMPONENTS ecl_config ecl_errors)
 catkin_package(

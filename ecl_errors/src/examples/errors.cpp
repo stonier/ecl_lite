@@ -45,10 +45,12 @@ int main() {
     std::cout << "***********************************************************" << std::endl;
     std::cout << std::endl;
 
+    std::cout << "Constructing an error of type 'Unknown Error'" << std::endl;
+    std::cout << std::endl;
     ecl::Error error(ecl::UnknownError);
     std::cout << "Error::what() " << std::endl;
     std::cout << error.what() << std::endl;
-    std::cout << "Error::print() " << std::endl;
+    std::cout << "Error::print(LOC) " << std::endl;
     error.print(LOC);
 
     std::cout << std::endl;

@@ -3,6 +3,7 @@
 
   @section Changes
 
+    - <b>Mar 13</b> : msvc port.
 	- <b>Feb 11</b> : Moved runtime functions/macros to :: with ecl_ prefix.
 	- <b>Feb 11</b> : Moved exception classes out to ecl_exceptions.
 	- <b>May 10</b> : Cmake win32 framework.

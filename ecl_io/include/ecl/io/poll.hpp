@@ -19,9 +19,9 @@
 #include "sockets.hpp"
 
 #ifdef ECL_IS_WIN32
-    // nothing special here.
+  // nothing special here.
 #else
-	#include <poll.h>
+  #include <poll.h>
 #endif
 
 /*****************************************************************************
@@ -29,37 +29,37 @@
 *****************************************************************************/
 
 #ifdef ECL_IS_WIN32
-	#ifndef POLLRDNORM
-		#define POLLRDNORM  0x0100 /* mapped to read fds_set */
-	#endif
-	#ifndef POLLRDBAND
-		#define POLLRDBAND  0x0200 /* mapped to exception fds_set */
-	#endif
-	#ifndef POLLIN
-		#define POLLIN      (POLLRDNORM | POLLRDBAND) /* There is data to read.  */
-	#endif
-	#ifndef POLLPRI
-		#define POLLPRI     0x0400 /* There is urgent data to read.  */
-	#endif
+  #ifndef POLLRDNORM
+    #define POLLRDNORM  0x0100 /* mapped to read fds_set */
+  #endif
+  #ifndef POLLRDBAND
+    #define POLLRDBAND  0x0200 /* mapped to exception fds_set */
+  #endif
+  #ifndef POLLIN
+    #define POLLIN      (POLLRDNORM | POLLRDBAND) /* There is data to read.  */
+  #endif
+  #ifndef POLLPRI
+    #define POLLPRI     0x0400 /* There is urgent data to read.  */
+  #endif
 
-	#ifndef POLLWRNORM
-		#define POLLWRNORM  0x0010 /* mapped to write fds_set */
-	#endif
-	#ifndef POLLOUT
-		#define POLLOUT     (POLLWRNORM) /* Writing now will not block.  */
-	#endif
-	#ifndef POLLWRBAND
-		#define POLLWRBAND  0x0020 /* mapped to write fds_set */
-	#endif
-	#ifndef POLLERR
-		#define POLLERR     0x0001 /* Error condition.  */
-	#endif
-	#ifndef POLLHUP
-		#define POLLHUP     0x0002 /* Hung up.  */
-	#endif
-	#ifndef POLLNVAL
-		#define POLLNVAL    0x0004 /* Invalid polling request.  */
-	#endif
+  #ifndef POLLWRNORM
+    #define POLLWRNORM  0x0010 /* mapped to write fds_set */
+  #endif
+  #ifndef POLLOUT
+    #define POLLOUT     (POLLWRNORM) /* Writing now will not block.  */
+  #endif
+  #ifndef POLLWRBAND
+    #define POLLWRBAND  0x0020 /* mapped to write fds_set */
+  #endif
+  #ifndef POLLERR
+    #define POLLERR     0x0001 /* Error condition.  */
+  #endif
+  #ifndef POLLHUP
+    #define POLLHUP     0x0002 /* Hung up.  */
+  #endif
+  #ifndef POLLNVAL
+    #define POLLNVAL    0x0004 /* Invalid polling request.  */
+  #endif
 #else
     // Nothing to see here!
 #endif

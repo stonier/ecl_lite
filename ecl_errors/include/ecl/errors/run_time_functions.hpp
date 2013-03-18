@@ -48,7 +48,7 @@
      *
      * @sa LOC
      **/
-    ECL_PUBLIC void ecl_run_time_assert ( bool requirement, const char* location, const char* msg);
+    ecl_errors_PUBLIC void ecl_run_time_assert ( bool requirement, const char* location, const char* msg);
     /**
      * @brief Condition test, aborts with a predefined error string if it fails.
      *
@@ -64,7 +64,7 @@
      *
      * @sa LOC.
      **/
-    ECL_PUBLIC void ecl_run_time_assert ( bool requirement, const char* location, ecl::ErrorFlag type);
+    ecl_errors_PUBLIC void ecl_run_time_assert ( bool requirement, const char* location, ecl::ErrorFlag type);
 #endif
 
 /*****************************************************************************
@@ -81,7 +81,7 @@
  *
  * @sa LOC
  **/
-ECL_PUBLIC void ecl_run_time_abort ( const char* location, const char* msg = "Abort procedure called.");
+ecl_errors_PUBLIC void ecl_run_time_abort ( const char* location, const char* msg = "Abort procedure called.");
 /**
  * @brief Puts a predefined error string to stderr before aborting the program.
  *
@@ -92,6 +92,6 @@ ECL_PUBLIC void ecl_run_time_abort ( const char* location, const char* msg = "Ab
  *
  * @sa LOC
  **/
-ECL_PUBLIC void ecl_run_time_abort ( const char* location,  ecl::ErrorFlag type );
+ecl_errors_PUBLIC void ecl_run_time_abort ( const char* location,  ecl::ErrorFlag type );
 
 #endif /* ECL_ERRORS_ERROR_FUNCTIONS_HPP_*/
