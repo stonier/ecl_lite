@@ -17,6 +17,7 @@
 *****************************************************************************/
 
 #include <ecl/time_lite/config.hpp>
+#include "macros.hpp"
 
 #if defined(ECL_HAS_WIN_TIMERS)
 
@@ -42,7 +43,7 @@ namespace ecl {
  *
  * Simply replicates the posix timespec structure.
  */
-struct ECL_PUBLIC TimeStructure {
+struct ecl_time_lite_PUBLIC TimeStructure {
 	time_t tv_sec;
 	long tv_nsec;
 };

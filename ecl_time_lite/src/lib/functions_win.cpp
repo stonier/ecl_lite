@@ -58,7 +58,6 @@ static double cpu_frequency() {
 ** Public functions
 *****************************************************************************/
 
-int dude() { int i = 3; return i; }
 TimeError epoch_time(TimeStructure &time) {
 	// Get time
     LARGE_INTEGER stamp;

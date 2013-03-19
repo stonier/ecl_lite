@@ -20,6 +20,7 @@
 #include "types.hpp"
 #include <ecl/time_lite/config.hpp>
 #include <ecl/config/macros.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -43,7 +44,7 @@ namespace ecl {
  * @param time : time structure.
  * @return TimeError : error result.
  */
-ECL_PUBLIC TimeError cpu_time(TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError cpu_time(TimeStructure &time);
 #endif
 
 } // namespace ecl

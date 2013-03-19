@@ -20,6 +20,7 @@
 *****************************************************************************/
 
 #include <ecl/time_lite/config.hpp>
+#include "macros.hpp"
 
 #if defined(ECL_HAS_POSIX_TIMERS)
 
@@ -60,7 +61,7 @@ namespace ecl {
  * @param time : time structure.
  * @return TimeError : error result.
  */
-ECL_PUBLIC TimeError epoch_time(TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError epoch_time(TimeStructure &time);
 
 /**
  * @brief Fallback approximation to an absolute timed sleep.
@@ -79,7 +80,7 @@ ECL_PUBLIC TimeError epoch_time(TimeStructure &time);
  * @param time : the time to sleep until.
  * @return TimeError : error result.
  */
-ECL_PUBLIC TimeError sleep_until(const TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError sleep_until(const TimeStructure &time);
 
 /**
  * @brief A regular sleep function that operates relative to 'now'.
@@ -97,7 +98,7 @@ ECL_PUBLIC TimeError sleep_until(const TimeStructure &time);
  * @param time : the period to sleep for.
  * @return TimeError : error result.
  */
-ECL_PUBLIC TimeError sleep(const TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError sleep(const TimeStructure &time);
 
 } // namespace ecl
 

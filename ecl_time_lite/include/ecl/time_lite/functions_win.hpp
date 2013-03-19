@@ -17,6 +17,7 @@
 *****************************************************************************/
 
 #include <ecl/time_lite/config.hpp>
+#include "macros.hpp"
 
 #if defined(ECL_HAS_WIN_TIMERS)
 
@@ -28,6 +29,7 @@
 #include <ecl/config/macros.hpp>
 #include "types_win.hpp"
 #include "errors.hpp"
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -38,7 +40,6 @@ namespace ecl {
 /*****************************************************************************
 ** Functions
 *****************************************************************************/
-ECL_LOCAL int dude();
 
 /**
  * @brief Gets the time in seconds/nanoseconds from some landmark point.
@@ -56,7 +57,7 @@ ECL_LOCAL int dude();
  * @param time : time structure.
  * @return TimeError :  error result.
  */
-ECL_PUBLIC TimeError epoch_time(TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError epoch_time(TimeStructure &time);
 
 /**
  * @brief Fallback to an approximation of an absolute sleep function.
@@ -74,7 +75,7 @@ ECL_PUBLIC TimeError epoch_time(TimeStructure &time);
  * @param time : the absolute time to sleep until.
  * @return TimeError :  error result.
  */
-ECL_PUBLIC TimeError sleep_until(const TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError sleep_until(const TimeStructure &time);
 
 /**
  * @brief A regular sleep function that operates relative to 'now'.
@@ -90,7 +91,7 @@ ECL_PUBLIC TimeError sleep_until(const TimeStructure &time);
  * @param time : the period to sleep for.
  * @return TimeError :  error result.
  */
-ECL_PUBLIC TimeError sleep(const TimeStructure &time);
+ecl_time_lite_PUBLIC  TimeError sleep(const TimeStructure &time);
 
 } // namespace ecl
 

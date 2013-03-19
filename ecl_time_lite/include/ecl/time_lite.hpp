@@ -17,6 +17,7 @@
 *****************************************************************************/
 
 #include <ecl/time_lite/config.hpp>
+#include "macros.hpp"
 #include "time_lite/errors.hpp"
 #include "time_lite/types.hpp"
 #include "time_lite/functions.hpp"

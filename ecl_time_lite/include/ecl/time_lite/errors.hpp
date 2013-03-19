@@ -20,6 +20,7 @@
 
 #include <ecl/errors/handlers.hpp>
 #include <ecl/config/macros.hpp>
+#include "macros.hpp"
 
 /*****************************************************************************
 ** Namespaces
@@ -30,7 +31,7 @@ namespace ecl {
 /**
  * @brief Extends the generic ecl error handler with some time specific error strings.
  */
-class ECL_PUBLIC TimeError : public Error {
+class ecl_time_lite_PUBLIC  TimeError : public Error {
 public:
 	/**
 	 * @brief Configures the error class with the specified error flag.

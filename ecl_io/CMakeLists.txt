@@ -8,18 +8,25 @@ project(ecl_io)
 ##############################################################################
 # Catkin
 ##############################################################################
+
+set(sockets_INCLUDE_DIRS "") # Just assume they're in the system dirs for now
 if(MINGW)
-  set(socket_LIBRARIES rpcrt4 shell32 ws2_32 advapi32 kernel32 msvcrt)
+  set(sockets_LIBRARIES rpcrt4 shell32 ws2_32 advapi32 kernel32 msvcrt)
 elseif(WIN32)
-  find_library(socket_LIBRARIES ws2_32)
+  find_library(sockets_LIBRARIES ws2_32)
 else()
-    set(socket_LIBRARIES "")
+    set(sockets_LIBRARIES "")
 endif()
+
+##############################################################################
+# Catkin
+##############################################################################
 
 find_package(catkin REQUIRED COMPONENTS ecl_config ecl_errors)
 catkin_package(
         INCLUDE_DIRS include
         LIBRARIES ${PROJECT_NAME}
+        DEPENDS sockets
         )
 include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
 
