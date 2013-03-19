@@ -1,7 +1,7 @@
 /**
  * @file include/ecl/io.hpp
  *
- * @brief Collects headers for ecl_sockets.
+ * @brief Collects headers for ecl_io.
  *
  * @date Jan 1970
  **/

@@ -89,7 +89,7 @@ namespace ecl {
 #endif
 
 
-int poll_sockets(socket_pollfd *fds, nfds_t nfds, int timeout);
+  ecl_io_PUBLIC int poll_sockets(socket_pollfd *fds, nfds_t nfds, int timeout);
 
 } // namespace ecl
 

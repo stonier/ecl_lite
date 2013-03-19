@@ -12,8 +12,10 @@
 
 #include <iostream>
 #include <cstdlib>
-#include <unistd.h>
 #include <ecl/config/ecl.hpp>
+#ifndef ECL_IS_WIN32
+  #include <unistd.h>
+#endif
 #include <ecl/errors/handlers.hpp>
 #include "../../include/ecl/io/socketpair.hpp"
 

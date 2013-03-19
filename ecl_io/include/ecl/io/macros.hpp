@@ -23,9 +23,7 @@
 #ifdef ECL_HAS_SHARED_LIBS // ecl is being built around shared libraries
   #ifdef ecl_io_EXPORTS // we are building a shared lib/dll
     #define ecl_io_PUBLIC ECL_HELPER_EXPORT
-    #pragma message ( "ecl_io_EXPORTS...................")
   #else // we are using shared lib/dll
-    #pragma message ( "ecl_io_IMPORTS...................")
     #define ecl_io_PUBLIC ECL_HELPER_IMPORT
   #endif
   #define ecl_io_LOCAL ECL_HELPERS_LOCAL

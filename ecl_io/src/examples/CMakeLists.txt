@@ -3,16 +3,9 @@
 ##############################################################################
 
 macro(ecl_add_io_example exe)
-  if(MINGW)
-    set(SOCK_LIBS ${PROJECT_NAME} rpcrt4 shell32 ws2_32 advapi32 kernel32 msvcrt)
-  elseif(WIN32)
-    set(SOCK_LIBS ${PROJECT_NAME} ws2_32)
-  else()
-    set(SOCK_LIBS ${PROJECT_NAME})
-  endif()
-  add_executable(${exe} ${ARGN})
-  target_link_libraries(ecl_${exe} ${SOCK_LIBS})
-  install(TARGETS ecl_${exe} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+  add_executable(ecl_demo_${exe} ${ARGN})
+  target_link_libraries(ecl_demo_${exe} ${PROJECT_NAME} ${socket_LIBRARIES})
+  install(TARGETS ecl_demo_${exe} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 endmacro()
 
 ##############################################################################

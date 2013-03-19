@@ -8,10 +8,12 @@ project(ecl_io)
 ##############################################################################
 # Catkin
 ##############################################################################
-if(MSVC)
+if(MINGW)
+  set(socket_LIBRARIES rpcrt4 shell32 ws2_32 advapi32 kernel32 msvcrt)
+elseif(WIN32)
   find_library(socket_LIBRARIES ws2_32)
 else()
-  set(socket_LIBRARIES "")
+    set(socket_LIBRARIES "")
 endif()
 
 find_package(catkin REQUIRED COMPONENTS ecl_config ecl_errors)

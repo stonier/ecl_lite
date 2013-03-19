@@ -119,7 +119,7 @@ protected:
  *
  * @return SocketError : error return value.
  */
-SocketError init_sockets();
+ecl_io_PUBLIC SocketError init_sockets();
 /**
  * @brief Close a socket.
  *
@@ -136,7 +136,7 @@ SocketError init_sockets();
  *
  * @return SocketError : error return value.
  */
-SocketError close_socket(const socket_descriptor& sock);
+ecl_io_PUBLIC SocketError close_socket(const socket_descriptor& sock);
 /**
  * @brief Shutdown the socket subsystem.
  *
@@ -151,7 +151,7 @@ SocketError close_socket(const socket_descriptor& sock);
  *
  * @return SocketError : error return value.
  */
-SocketError shutdown_sockets();
+ecl_io_PUBLIC SocketError shutdown_sockets();
 
 } // namespace ecl
 

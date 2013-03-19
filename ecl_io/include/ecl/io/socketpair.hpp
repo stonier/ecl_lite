@@ -37,7 +37,7 @@ namespace ecl {
  *
  * @return SocketError : error return value.
  */
-SocketError socketpair(socket_descriptor socket_fd_pair[2], const bool non_blocking = false );
+ecl_io_PUBLIC SocketError socketpair(socket_descriptor socket_fd_pair[2], const bool non_blocking = false );
 
 
 } // namespace ecl
