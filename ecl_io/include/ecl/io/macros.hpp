@@ -1,13 +1,10 @@
 /**
- * @file /include/ecl/errors/macros.hpp
+ * @file /include/ecl/io/macros.hpp
  *
- * @brief Macros for error-checking and program termination.
+ * @brief Macros for windows dlls.
  *
- * Macros for error-checking and program termination.
- *
- * @date April 2009.
- **/
-/*****************************************************************************
+ * @date March 2013.
+ **//*****************************************************************************
 ** Ifdefs
 *****************************************************************************/
 
