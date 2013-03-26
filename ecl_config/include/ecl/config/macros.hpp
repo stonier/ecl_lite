@@ -146,4 +146,9 @@
   #endif
 #endif
 
+// Until we depracate this entirely, need this to avoid being interpreted as a variable
+#define ECL_PUBLIC
+#define ECL_LOCAL
+
+
 #endif /* ECL_UTILITY_CONFIG_MACROS_HPP_ */
