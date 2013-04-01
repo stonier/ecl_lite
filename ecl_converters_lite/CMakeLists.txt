@@ -22,4 +22,3 @@ include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
 add_subdirectory(include)
 add_subdirectory(src)
 
-
