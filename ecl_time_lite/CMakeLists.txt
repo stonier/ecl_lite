@@ -32,7 +32,7 @@ catkin_package(
         LIBRARIES ${PROJECT_NAME}
         DEPENDS ECL_PLATFORM_TIME
 	)
-include_directories(SYSTEM include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # CMake File Configuration

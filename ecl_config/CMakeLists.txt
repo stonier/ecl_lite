@@ -28,7 +28,7 @@ include_directories(${CATKIN_DEVEL_PREFIX}/include)
 # Actual project configuration
 ##############################################################################
 
-include_directories(SYSTEM ${catkin_INCLUDE_DIRS})
+include_directories(${catkin_INCLUDE_DIRS})
 
 add_subdirectory(include)
 add_subdirectory(src)
