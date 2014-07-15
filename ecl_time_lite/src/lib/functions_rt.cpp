@@ -24,17 +24,12 @@
 
 namespace ecl {
 
-TimeError epoch_time(TimeStructure &time, bool monotonic) {
+TimeError epoch_time(TimeStructure &time) {
 	// _POSIX_CLOCK_MONOTONIC should have gotten us this far,
 	// just check if we have CLOCK_MONOTONIC and if not, fallback to
 	// CLOCK_REALTIME.
 #ifdef ECL_HAS_CLOCK_MONOTONIC
-        int result;
-        if (monotonic) {
-          result = clock_gettime(CLOCK_MONOTONIC,&time);
-        } else {
-          result = clock_gettime(CLOCK_REALTIME,&time);
-        }
+	int result = clock_gettime(CLOCK_MONOTONIC,&time);
 #else
 	int result = clock_gettime(CLOCK_REALTIME,&time);
 #endif

@@ -52,7 +52,7 @@ namespace ecl {
  * @param time : time structure.
  * @return TimeError : error result.
  */
-ecl_time_lite_PUBLIC  TimeError epoch_time(TimeStructure &time, bool monotonic = true);
+ecl_time_lite_PUBLIC  TimeError epoch_time(TimeStructure &time);
 
 /**
  * @brief Monotonic absolute timed sleep function provided by librt.
