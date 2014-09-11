@@ -2,8 +2,8 @@
 Changelog for package ecl_time_lite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+0.61.0 (2014-09-12)
+-------------------
 * unique get date string function for unique filename creation.
 * optional flag for getting real time instead of monolithic posix time (this syncs with ROS)
 
