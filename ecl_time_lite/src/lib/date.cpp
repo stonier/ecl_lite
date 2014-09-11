@@ -30,11 +30,13 @@ std::string get_date_string() {
   now = time(NULL);
   if (now != -1)
   {
-    strftime(the_date, 12, "%d_%m_%Y", gmtime(&now));
+    // this makes use of the variable LC_TIME
+    // it also gives me incorrect time on my machine, wrong time zone?
+    strftime(the_date, 17, "%Y%m%d-%H%M%S", gmtime(&now));
   }
   return std::string(the_date);
 }
 
 } // namespace ecl
 
-#endif POSIX_TIMERS || RT_TIMERS
+#endif // POSIX_TIMERS || RT_TIMERS
