@@ -2,6 +2,10 @@
 Changelog for package ecl_time_lite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.61.1 (2015-07-26)
+-------------------
+* support get_date_string on macosx.
+
 0.61.0 (2014-09-12)
 -------------------
 * unique get date string function for unique filename creation.
