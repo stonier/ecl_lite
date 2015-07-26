@@ -16,14 +16,12 @@
 
 #include <ecl/time_lite/config.hpp>
 
-#if defined(ECL_HAS_POSIX_TIMERS) || defined (ECL_HAS_RT_TIMERS)
+#if defined(ECL_HAS_POSIX_TIMERS) || defined (ECL_HAS_RT_TIMERS) || defined(ECL_HAS_MACH_TIMERS)
 
 /*****************************************************************************
 ** Includes
 *****************************************************************************/
 
-///#include <ctime> // time structs, nanosleep
-//#include <sys/time.h> // gettimeofday
 #include <string>
 #include "macros.hpp"
 
