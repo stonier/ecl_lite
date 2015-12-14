@@ -62,6 +62,8 @@
   #define ECL_DEPRECATED __attribute__((deprecated))
 #elif (defined _MSC_VER)
   #define ECL_DEPRECATED __declspec(deprecated)
+#elif defined(__clang__)
+  #define ECL_DEPRECATED  __attribute__((deprecated("Use of this method is deprecated")))
 #else
   #define ECL_DEPRECATED
 #endif
