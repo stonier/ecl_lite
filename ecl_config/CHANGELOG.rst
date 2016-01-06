@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Forthcoming
------------
+0.61.3 (2016-01-06)
+-------------------
 * deprecation macro for clang.
 
 0.60.1 (2014-01-29)
