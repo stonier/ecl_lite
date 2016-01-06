@@ -1,6 +1,10 @@
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Changelog for package ecl_config
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+=========
+Changelog
+=========
+
+Forthcoming
+-----------
+* deprecation macro for clang.
 
 0.60.1 (2014-01-29)
 -------------------
