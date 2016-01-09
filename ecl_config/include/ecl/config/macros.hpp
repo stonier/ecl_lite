@@ -44,6 +44,23 @@
   #define ECL_DONT_INLINE
 #endif
 
+/**
+ * @brief C++11 support is available.
+ *
+ * This is a very dodgy way of checking - haven't tested across compilers
+ * very well, and it doesn't take into account the partial completeness
+ * of the implementations.
+ *
+ * It does however, provide a way for headers to use c++11 symbols
+ * in a non-destructive way for users (we often define typedefs for
+ * shared ptr variations).
+ */
+#if defined(__cplusplus) && (__cplusplus >= 201103L)
+    #define ECL_CXX11_FOUND
+#else
+    #define ECL_CXX11_NOT_FOUND
+#endif
+
 /*****************************************************************************
 ** Depracated
 *****************************************************************************/

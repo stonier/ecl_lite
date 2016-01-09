@@ -2,6 +2,10 @@
 Changelog
 =========
 
+Forthcoming
+-----------
+* macro for use with checking for CXX11
+
 0.61.3 (2016-01-06)
 -------------------
 * deprecation macro for clang.
