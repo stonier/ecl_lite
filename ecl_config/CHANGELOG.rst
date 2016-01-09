@@ -2,8 +2,8 @@
 Changelog
 =========
 
-Forthcoming
------------
+0.61.4 (2016-01-10)
+-------------------
 * macro for use with checking for CXX11
 
 0.61.3 (2016-01-06)
