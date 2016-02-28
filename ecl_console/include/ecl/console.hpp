@@ -440,7 +440,12 @@ namespace ecl
         inline
         bool is_atty(const std::ostream& stream)
         {
+            // DJS : don't worry about strict checking so we can use this with
+            // stringstreams. Upstream issue at https://github.com/ikalnitsky/termcolor/issues/5
+            return true;
+
             FILE* std_stream = get_standard_stream(stream);
+
 
         #if defined(OS_MACOS) || defined(OS_LINUX)
             return ::isatty(fileno(std_stream));
