@@ -35,7 +35,7 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 ##############################################################################
 
 install(
-  DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  DIRECTORY include/ecl/
+  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl
   FILES_MATCHING PATTERN "*.hpp"
 )
