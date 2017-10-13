@@ -11,7 +11,7 @@
 
 #include <ecl/time_lite/config.hpp>
 
-#if defined(ECL_HAS_POSIX_TIMERS) || defined(ECL_HAS_RT_TIMERS) || defined(ECL_HAS_MACH_TIMERS)
+#if defined(ECL_HAS_POSIX_TIMERS) || defined(ECL_HAS_RT_TIMERS) || defined(ECL_HAS_MACH_TIMERS) || defined(ECL_HAS_WIN_TIMERS)
 
 /*****************************************************************************
 ** Includes
@@ -44,4 +44,4 @@ std::string get_date_string() {
 
 } // namespace ecl
 
-#endif // POSIX_TIMERS || RT_TIMERS
+#endif 

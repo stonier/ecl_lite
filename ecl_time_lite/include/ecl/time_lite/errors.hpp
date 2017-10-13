@@ -39,6 +39,13 @@ public:
 	 * @param flag : the error type.
 	 */
 	TimeError(const ErrorFlag& flag = UnknownError) : Error(flag) {}
+
+#ifdef _WIN32
+
+	bool Equals(const TimeError& other) { return error_flag == other.error_flag; }
+
+#endif
+
 protected:
 	virtual const char* outOfRangeErrorString() { return "The input time sec/nsec pair was outside of the permitted range."; }
 	virtual const char* argNotSupportedErrorString() { return "The clock specified is not supported on this system."; }
