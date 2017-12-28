@@ -2,5 +2,4 @@
 # FILES
 ###############################################################################
 
-install(FILES LICENSE DESTINATION share/ecl/licenses/termcolor)
-
+install(FILES LICENSE DESTINATION share/${PROJECT_NAME})
