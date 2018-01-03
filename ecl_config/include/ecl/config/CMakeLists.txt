@@ -23,11 +23,11 @@ ENDIF()
 # Threads
 ###################################
 
-IF( ECL_PLATFORM_HAS_POSIX_THREADS ) 
+IF( ECL_PLATFORM_HAS_POSIX_THREADS )
   SET(ECL_HAS_POSIX_THREADS 1)
-ELSEIF( ECL_PLATFORM_HAS_WIN32_THREADS ) 
+ELSEIF( ECL_PLATFORM_HAS_WIN32_THREADS )
   SET(ECL_HAS_WIN32_THREADS 1)
-ENDIF() 
+ENDIF()
 
 ###################################
 # TYPES
@@ -41,7 +41,7 @@ SET(ECL_SIZE_OF_LONG_LONG ${PLATFORM_SIZE_OF_LONG_LONG})
 SET(ECL_SIZE_OF_FLOAT ${PLATFORM_SIZE_OF_FLOAT})
 SET(ECL_SIZE_OF_DOUBLE ${PLATFORM_SIZE_OF_DOUBLE})
 SET(ECL_SIZE_OF_LONG_DOUBLE ${PLATFORM_SIZE_OF_LONG_DOUBLE})
-IF( PLATFORM_IS_32_BIT ) 
+IF( PLATFORM_IS_32_BIT )
   SET(ECL_IS_32_BIT 1)
 ELSEIF( PLATFORM_IS_64_BIT )
   SET(ECL_IS_64_BIT 1)
@@ -55,12 +55,12 @@ if(BUILD_SHARED_LIBS)
 else()
   set(ECL_HAS_STATIC_LIBS 1)
 endif()
-  
+
 ###############################################################################
 # GENERATE HEADER
 ###############################################################################
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/config/ecl.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp)
 
 ###############################################################################
 # FILES
@@ -68,8 +68,9 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CATKIN_DEVEL_PREFIX}/inc
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
 
-install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/config/ecl.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
-install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION include FILES_MATCHING PATTERN "*.hpp")
+
+
 # If we want to supply the version number in major/minor/patch
 # split version in parts and pass to extra file
 #string(REPLACE "." ";" roscpp_VERSION_LIST "${roscpp_VERSION}")

@@ -38,13 +38,10 @@ if(ECL_PLATFORM_HAS_POSIX_TIMERS)
   set(ECL_HAS_POSIX_TIMERS 1)
 endif()
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/time_lite/config.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.hpp.in ${CMAKE_CURRENT_SOURCE_DIR}/config.hpp)
 
 ##############################################################################
 # Files
 ##############################################################################
 
-file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
-
-install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/time_lite)
-install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/time_lite/config.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/time_lite)
+INSTALL(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION include FILES_MATCHING PATTERN "*.hpp")
