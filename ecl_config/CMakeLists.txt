@@ -28,8 +28,6 @@ include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   )
 
-message(${CMAKE_SOURCE_DIR}/include)
-
 add_subdirectory(include)
 add_subdirectory(src)
 
