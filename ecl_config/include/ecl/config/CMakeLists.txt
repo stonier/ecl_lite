@@ -67,12 +67,9 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CMAKE_CURRENT_BINARY_DIR
 ###############################################################################
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
-
-message("1111")
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ecl.hpp DESTINATION include/ecl/config)
-message("2222")
 install(FILES ${HEADERS} DESTINATION include/ecl/config)
-message("3333")
+
 # If we want to supply the version number in major/minor/patch
 # split version in parts and pass to extra file
 #string(REPLACE "." ";" roscpp_VERSION_LIST "${roscpp_VERSION}")
