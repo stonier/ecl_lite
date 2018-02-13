@@ -12,4 +12,5 @@ many of the usual mechanisms are unavailable.
 It also includes a few packages which standardise lower level
 api (e.g. posix/win32) with drop-ins to make them properly cross-platform,
 
+The development branch now uses ament. The most recent catkin based branches are on [release/0.61-indigo-kinetic](https://github.com/stonier/ecl_lite/tree/release/0.61-indigo-kinetic) and [release/0.61-lunar](https://github.com/stonier/ecl_lite/tree/release/0.61-lunar).
 
