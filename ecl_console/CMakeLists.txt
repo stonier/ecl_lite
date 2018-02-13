@@ -2,33 +2,26 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_console)
 
 ##############################################################################
 # Find
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS ecl_build ecl_config)
-
-##############################################################################
-# Exports
-##############################################################################
-
-catkin_package(
-    INCLUDE_DIRS
-        include
-    CATKIN_DEPENDS
-        ecl_build
-        ecl_config
-)
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_config REQUIRED)
 
 ##############################################################################
 # Project configuration
 ##############################################################################
 
 ecl_enable_cxx11_compiler()
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include 
+  ${ecl_build_INCLUDE_DIRS}
+  ${ecl_config_INCLUDE_DIRS}
+  )
 
 ##############################################################################
 # Installs
@@ -36,6 +29,11 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 
 install(
   DIRECTORY include/ecl/
-  DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl
+  DESTINATION include/ecl
   FILES_MATCHING PATTERN "*.hpp"
 )
+
+
+ament_export_include_directories(include)
+ament_export_libraries(${PROJECT_NAME})
+ament_package()

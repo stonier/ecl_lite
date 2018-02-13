@@ -5,7 +5,7 @@
 macro(ecl_add_io_example exe)
   add_executable(ecl_demo_${exe} ${ARGN})
   target_link_libraries(ecl_demo_${exe} ${PROJECT_NAME} ${sockets_LIBRARIES})
-  install(TARGETS ecl_demo_${exe} RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+  install(TARGETS ecl_demo_${exe} RUNTIME DESTINATION bin)
 endmacro()
 
 ##############################################################################

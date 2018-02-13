@@ -60,16 +60,16 @@ endif()
 # GENERATE HEADER
 ###############################################################################
 
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CATKIN_DEVEL_PREFIX}/include/ecl/config/ecl.hpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/ecl.hpp.in ${CMAKE_CURRENT_BINARY_DIR}/ecl.hpp)
 
 ###############################################################################
 # FILES
 ###############################################################################
 
 file(GLOB HEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.hpp)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ecl.hpp DESTINATION include/ecl/config)
+install(FILES ${HEADERS} DESTINATION include/ecl/config)
 
-install(FILES ${CATKIN_DEVEL_PREFIX}/include/ecl/config/ecl.hpp DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
-install(FILES ${HEADERS} DESTINATION ${CATKIN_GLOBAL_INCLUDE_DESTINATION}/ecl/config)
 # If we want to supply the version number in major/minor/patch
 # split version in parts and pass to extra file
 #string(REPLACE "." ";" roscpp_VERSION_LIST "${roscpp_VERSION}")

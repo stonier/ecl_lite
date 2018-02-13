@@ -98,9 +98,11 @@ TimeError sleep(const TimeStructure &time) {
     HANDLE timer = NULL;
     LARGE_INTEGER sleep_time;
 
-    sleep_time.QuadPart = -
-            static_cast<ecl::uint64>(time.tv_sec)*10000000LL -
-            static_cast<ecl::uint64>(time.tv_nsec) / 100LL;
+	sleep_time.QuadPart = static_cast<ecl::uint64>(time.tv_nsec) / 100LL -
+		static_cast<ecl::uint64>(time.tv_sec) * 10000000LL;
+//	sleep_time.QuadPart = -
+//            static_cast<ecl::uint64>(time.tv_sec)*10000000LL -
+//            static_cast<ecl::uint64>(time.tv_nsec) / 100LL;
 
       if ( (timer = CreateWaitableTimer(NULL, TRUE, NULL)) == NULL ) {
     	  return TimeError(UnknownError);
@@ -118,4 +120,4 @@ TimeError sleep(const TimeStructure &time) {
 
 } // namespace ecl
 
-#endif
+#endif // POSIX_TIMERS || RT_TIMERS || WIN_TIMERS

@@ -2,33 +2,35 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_config)
 
 ##############################################################################
-# Catkin
+# ament
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS ecl_build)
-file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
-catkin_package(
-	INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/include
-	)
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
 
 ##############################################################################
 # ECL Configuration
 ##############################################################################
 
 ecl_detect_platform()
-include_directories(${CATKIN_DEVEL_PREFIX}/include)
 
 ##############################################################################
 # Actual project configuration
 ##############################################################################
 
-include_directories(${catkin_INCLUDE_DIRS})
+include_directories(include
+  ${CMAKE_CURRENT_BINARY_DIR}/include
+  ${ecl_build_INCLUDE_DIRS}
+  )
 
 add_subdirectory(include)
 add_subdirectory(src)
 
+ament_export_include_directories(include)
+ament_package()
 

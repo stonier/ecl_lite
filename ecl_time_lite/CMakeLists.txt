@@ -2,15 +2,18 @@
 # Cmake
 ##############################################################################
 
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(ecl_time_lite)
 
 ##############################################################################
-# Catkin
+# ament
 ##############################################################################
 
-find_package(catkin REQUIRED COMPONENTS ecl_build ecl_config ecl_errors)
-file(MAKE_DIRECTORY ${CATKIN_DEVEL_PREFIX}/include)
+find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
+find_package(ecl_config REQUIRED)
+find_package(ecl_errors REQUIRED)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
 
 ##############################################################################
 # Platform Configuration
@@ -24,19 +27,18 @@ ecl_detect_timers()
 # Exports
 ##############################################################################
 
-catkin_package(
-        INCLUDE_DIRS include ${CATKIN_DEVEL_PREFIX}/include
-        LIBRARIES ${PROJECT_NAME}
-        DEPENDS ECL_PLATFORM_TIME
-	)
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include 
+  ${ecl_build_INCLUDE_DIRS}
+  ${ecl_config_INCLUDE_DIRS}
+  ${ecl_errors_INCLUDE_DIRS}
+  )
 
 ##############################################################################
 # CMake File Configuration
 ##############################################################################
 
 # Make sure we pick up cmake configured files
-include_directories(${CATKIN_DEVEL_PREFIX}/include)
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
 
 ##############################################################################
 # Actual project configuration
@@ -46,3 +48,6 @@ add_subdirectory(include)
 add_subdirectory(src)
 
 
+ament_export_include_directories(include)
+ament_export_libraries(${PROJECT_NAME})
+ament_package()
