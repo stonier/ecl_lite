@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_io)
 
 ##############################################################################
-# ament
+# Sockets
 ##############################################################################
 
 set(sockets_INCLUDE_DIRS "") # Just assume they're in the system dirs for now
@@ -19,19 +19,24 @@ else()
 endif()
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
-include_directories(include 
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+include_directories(include
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   )
 
 ##############################################################################
-# Actual project configuration
+# Exports
 ##############################################################################
 
 add_subdirectory(include)
@@ -40,4 +45,8 @@ add_subdirectory(src)
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_config
+    ecl_errors
+)
 ament_package()
