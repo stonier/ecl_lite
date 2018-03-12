@@ -19,8 +19,6 @@ find_package(ecl_config REQUIRED)
 
 ecl_enable_cxx14_compiler()
 
-include_directories(include ${ecl_config_INCLUDE_DIRS})
-
 ##############################################################################
 # Sources
 ##############################################################################
@@ -32,6 +30,6 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
+ament_export_interfaces(${PROJECT_NAME})
+ament_export_dependencies(ecl_config)
 ament_package()

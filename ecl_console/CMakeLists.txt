@@ -17,14 +17,10 @@ find_package(ecl_config REQUIRED)
 # Project configuration
 ##############################################################################
 
-ecl_enable_cxx11_compiler()
-include_directories(include 
-  ${ecl_build_INCLUDE_DIRS}
-  ${ecl_config_INCLUDE_DIRS}
-  )
+ecl_enable_cxx14_compiler()
 
 ##############################################################################
-# Installs
+# Headers
 ##############################################################################
 
 install(
@@ -33,7 +29,30 @@ install(
   FILES_MATCHING PATTERN "*.hpp"
 )
 
+##############################################################################
+# Header Library
+##############################################################################
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
+add_library(${PROJECT_NAME} INTERFACE)
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+target_link_libraries(${PROJECT_NAME} INTERFACE ecl_config::ecl_config)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+   RUNTIME DESTINATION bin
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   INCLUDES DESTINATION include
+)
+
+##############################################################################
+# Exports
+##############################################################################
+
+ament_export_interfaces(${PROJECT_NAME})
+ament_export_dependencies(ecl_config)
 ament_package()

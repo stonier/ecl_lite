@@ -22,10 +22,25 @@ ecl_enable_cxx14_compiler()
 
 ecl_detect_platform()
 
-include_directories(include
-  ${CMAKE_CURRENT_BINARY_DIR}/include
-  ${ecl_build_INCLUDE_DIRS}
-  )
+##############################################################################
+# Header Library Targets
+##############################################################################
+
+add_library(${PROJECT_NAME} INTERFACE)
+target_include_directories(
+  ${PROJECT_NAME}
+  INTERFACE
+    $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+    $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+    $<INSTALL_INTERFACE:include>
+)
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}
+   RUNTIME DESTINATION bin
+   ARCHIVE DESTINATION lib
+   LIBRARY DESTINATION lib
+   INCLUDES DESTINATION include
+)
 
 ##############################################################################
 # Sources
@@ -38,6 +53,6 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
+ament_export_interfaces(${PROJECT_NAME})
 ament_package()
 

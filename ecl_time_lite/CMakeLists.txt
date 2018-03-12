@@ -26,15 +26,6 @@ file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
 # other ECL_PLATFORM_HAS_XXX flags
 ecl_detect_timers()
 
-include_directories(include
-  ${ecl_build_INCLUDE_DIRS}
-  ${ecl_config_INCLUDE_DIRS}
-  ${ecl_errors_INCLUDE_DIRS}
-  )
-
-# Make sure we pick up cmake configured files
-include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
-
 ##############################################################################
 # Sources
 ##############################################################################
@@ -47,7 +38,7 @@ add_subdirectory(src)
 ##############################################################################
 
 ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME} ${ECL_PLATFORM_TIME_LIBRARIES})
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
     ecl_errors
