@@ -6,48 +6,50 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_time_lite)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx14_compiler()
+
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include)
 
-##############################################################################
-# Platform Configuration
-##############################################################################
-
-# This configures ECL_PLATFORM_TIME_LIBRARIES and 
+# This configures ECL_PLATFORM_TIME_LIBRARIES and
 # other ECL_PLATFORM_HAS_XXX flags
-ecl_detect_timers()  
+ecl_detect_timers()
 
-##############################################################################
-# Exports
-##############################################################################
-
-include_directories(include 
+include_directories(include
   ${ecl_build_INCLUDE_DIRS}
   ${ecl_config_INCLUDE_DIRS}
   ${ecl_errors_INCLUDE_DIRS}
   )
 
-##############################################################################
-# CMake File Configuration
-##############################################################################
-
 # Make sure we pick up cmake configured files
 include_directories(${CMAKE_CURRENT_BINARY_DIR}/include)
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_config
+    ecl_errors
+)
 ament_package()

@@ -3,8 +3,8 @@
   <name>ecl_io</name>
   <version>0.61.6</version>
   <description>
-     Most implementations (windows, posix, ...) have slightly different api for 
-     low level input-output functions. These are gathered here and re-represented 
+     Most implementations (windows, posix, ...) have slightly different api for
+     low level input-output functions. These are gathered here and re-represented
      with a cross platform set of functions.
   </description>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
@@ -17,6 +17,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
+  <build_depend>ecl_build</build_depend>
   <build_depend>ecl_config</build_depend>
   <build_depend>ecl_errors</build_depend>
   <exec_depend>ecl_license</exec_depend>

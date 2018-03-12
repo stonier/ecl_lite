@@ -6,21 +6,35 @@ cmake_minimum_required(VERSION 3.5)
 project(ecl_converters_lite)
 
 ##############################################################################
-# ament
+# Find Packages
 ##############################################################################
 
 find_package(ament_cmake REQUIRED)
+find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
+
+##############################################################################
+# Project Configuration
+##############################################################################
+
+ecl_enable_cxx14_compiler()
+
 include_directories(include ${ecl_config_INCLUDE_DIRS})
 
 ##############################################################################
-# Actual project configuration
+# Sources
 ##############################################################################
 
 add_subdirectory(include)
 add_subdirectory(src)
 
+##############################################################################
+# Exports
+##############################################################################
 
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
+ament_export_dependencies(
+    ecl_config
+)
 ament_package()

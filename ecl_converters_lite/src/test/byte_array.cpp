@@ -23,23 +23,29 @@ bool debug_output = true;
 ** Tests
 *****************************************************************************/
 
-TEST(ConverterTests,byteArrays) {
+TEST(ConverterTests, byteArrays) {
 	ecl::int32 value;
 	ecl::uint32 u_value;
 	char three_six_three[4] = { 0x6b, 0x01, 0x00, 0x00 };
 	unsigned char u_three_six_three[4] = { 0x6b, 0x01, 0x00, 0x00 };
-	char minus_two[4] = { 0xfe, 0xff, 0xff, 0xff };
+	// generates narrow conversion errors if lots of warnings are on
+	// char minus_two[4] = { 0xfe, 0xff, 0xff, 0xff };
+	char minus_two[4] = { -2, -1, -1, -1 };
+	signed char s_minus_two[4] = { -2, -1, -1, -1 };
 	unsigned char u_minus_two[4] = { 0xfe, 0xff, 0xff, 0xff };
-	ecl::from_byte_array(value,three_six_three);
+	ecl::from_byte_array(value, three_six_three);
 	if ( debug_output ) { std::cout << "value: " << value << std::endl; }
 	EXPECT_EQ(363,value);
-	ecl::from_byte_array(u_value,u_three_six_three);
+	ecl::from_byte_array(u_value, u_three_six_three);
 	if ( debug_output ) { std::cout << "value: " << u_value << std::endl; }
-	EXPECT_EQ(363,u_value);
-	ecl::from_byte_array(value,minus_two);
+	EXPECT_EQ(363u, u_value);
+	ecl::from_byte_array(value, minus_two);
 	if ( debug_output ) { std::cout << "value: " << value << std::endl; }
 	EXPECT_EQ(-2,value);
-	ecl::from_byte_array(value,u_minus_two);
+	ecl::from_byte_array(value, s_minus_two);
+	if ( debug_output ) { std::cout << "value: " << value << std::endl; }
+	EXPECT_EQ(-2,value);
+	ecl::from_byte_array(value, u_minus_two);
 	if ( debug_output ) { std::cout << "value: " << value << std::endl; }
 	EXPECT_EQ(-2,value);
 }
