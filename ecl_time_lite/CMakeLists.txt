@@ -46,6 +46,9 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
+# TODO: need to somehow get the libraries defined in
+# ${ECL_PLATFORM_TIME_LIBRARIES} exported (catkin-ament regression)
+
 ament_export_include_directories(include)
 ament_export_libraries(${PROJECT_NAME})
 ament_export_dependencies(
