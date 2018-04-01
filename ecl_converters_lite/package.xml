@@ -3,8 +3,8 @@
   <name>ecl_converters_lite</name>
   <version>0.61.6</version>
   <description>
-     These are a very simple version of some of the functions in ecl_converters 
-     suitable for firmware development. That is, there is no use of new, 
+     These are a very simple version of some of the functions in ecl_converters
+     suitable for firmware development. That is, there is no use of new,
      templates or exceptions.
   </description>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
@@ -14,7 +14,7 @@
   <url type="repository">https://github.com/stonier/ecl_lite</url>
   <url type="bugtracker">https://github.com/stonier/ecl_lite/issues</url>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <build_depend>ecl_license</build_depend>
   <build_depend>ecl_config</build_depend>

@@ -3,7 +3,7 @@
   <name>ecl_config</name>
   <version>0.61.6</version>
   <description>
-     These tools inspect and describe your system with macros, types 
+     These tools inspect and describe your system with macros, types
      and functions.
   </description>
   <author email="d.stonier@gmail.com">Daniel Stonier</author> -->
@@ -13,7 +13,7 @@
   <url type="repository">https://github.com/stonier/ecl_lite</url>
   <url type="bugtracker">https://github.com/stonier/ecl_lite/issues</url>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <build_depend>ecl_build</build_depend>
   <build_depend>ecl_license</build_depend>
