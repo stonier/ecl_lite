@@ -12,7 +12,7 @@
   <url type="repository">https://github.com/stonier/ecl_lite</url>
   <url type="bugtracker">https://github.com/stonier/ecl_lite/issues</url>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_ros</buildtool_depend>
 
   <exec_depend>ecl_config</exec_depend>
   <exec_depend>ecl_converters_lite</exec_depend>

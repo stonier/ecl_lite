@@ -62,15 +62,20 @@ public:
 	 *
 	 * @param flag : the type of error that is to be returned.
 	 */
-	Error(const ErrorFlag& flag = UnknownError) : error_flag(flag) {}
+	explicit Error(const ErrorFlag& flag = UnknownError) : error_flag(flag) {}
 	virtual ~Error() {}
 
 	/**
 	 * @brief The flag identifying the error identified with this error handler.
-	 * @return ErrorFlag : the error flag.
+	 * @return ErrorFlag : the error flag
 	 */
 	virtual ErrorFlag flag() const { return error_flag; }
 	virtual void operator=(const ErrorFlag &error) { error_flag = error; }
+	/**
+	 * @brief Comparison operator
+	 * @return bool : the result of the comparison
+	 */
+	virtual bool operator==(const Error &other) { return (error_flag == other.error_flag); }
 
 //	virtual void debug(const char* loc) {
 //		#if !defined(NDEBUG) && !defined(ECL_NDEBUG)

@@ -22,7 +22,7 @@ endif()
 # Find Packages
 ##############################################################################
 
-find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_ros REQUIRED)
 find_package(ecl_build REQUIRED)
 find_package(ecl_config REQUIRED)
 find_package(ecl_errors REQUIRED)
@@ -49,8 +49,7 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
-ament_export_include_directories(include)
-ament_export_libraries(${PROJECT_NAME})
+ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(
     ecl_config
     ecl_errors
