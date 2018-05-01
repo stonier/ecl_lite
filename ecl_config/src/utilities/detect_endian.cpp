@@ -17,7 +17,7 @@
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
+int main(int /* argc */, char** /* argv */) {
 
 	if ( ecl::is_big_endian() ) {
 		std::cout << "Platform is big endian." << std::endl;
