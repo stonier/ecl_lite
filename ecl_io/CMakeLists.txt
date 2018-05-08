@@ -31,6 +31,7 @@ find_package(ecl_errors REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
 include_directories(include
