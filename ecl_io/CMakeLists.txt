@@ -31,6 +31,7 @@ find_package(ecl_errors REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
 include_directories(include
@@ -54,4 +55,5 @@ ament_export_dependencies(
     ecl_config
     ecl_errors
 )
+ament_export_libraries(${PROJECT_NAME})
 ament_package()

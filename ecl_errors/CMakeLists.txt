@@ -17,6 +17,7 @@ find_package(ecl_config REQUIRED)
 # Project Configuration
 ##############################################################################
 
+ament_package_xml()
 ecl_enable_cxx14_compiler()
 
 ##############################################################################
@@ -32,4 +33,5 @@ add_subdirectory(src)
 
 ament_export_interfaces(${PROJECT_NAME})
 ament_export_dependencies(ecl_config)
+ament_export_libraries(${PROJECT_NAME})
 ament_package()
