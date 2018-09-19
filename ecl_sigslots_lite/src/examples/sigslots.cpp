@@ -67,6 +67,9 @@ const unsigned int ecl::lite::GlobalSlots<void>::capacity = 2;
 
 int main(int argc, char **argv) {
 
+    (void)argc;
+    (void)argv;
+
 	Foo foo;
 
     std::cout << std::endl;
