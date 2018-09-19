@@ -68,6 +68,9 @@ int socket_error() {
 
 int main(int argc, char **argv) {
 
+	(void)argc;
+	(void)argv;
+
 	ecl::SocketError error = ecl::init_sockets();
 	if ( error.flag() != ecl::NoError ) {
 		std::cout << error.what() << std::endl;
