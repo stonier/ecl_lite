@@ -21,10 +21,7 @@
 ** Main program
 *****************************************************************************/
 
-int main(int argc, char **argv) {
-
-    (void)argc;
-    (void)argv;
+int main(int /*argc*/, char** /*argv*/) {
 
     ecl::SocketError error = ecl::init_sockets();
     if ( error.flag() != ecl::NoError ) {
