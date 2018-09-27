@@ -56,7 +56,7 @@ void sleep_one_sec() {
 ** Main
 *****************************************************************************/
 
-int main(int argc, char **argv) {
+int main(int /*argc*/, char** /*argv*/) {
 
 	ecl::SocketError error = ecl::init_sockets();
 	if ( error.flag() != ecl::NoError ) {

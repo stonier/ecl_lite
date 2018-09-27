@@ -30,7 +30,7 @@ TEST(ConverterTests, byteArrays) {
 	unsigned char u_three_six_three[4] = { 0x6b, 0x01, 0x00, 0x00 };
 	// generates narrow conversion errors if lots of warnings are on
 	// char minus_two[4] = { 0xfe, 0xff, 0xff, 0xff };
-	char minus_two[4] = { -2, -1, -1, -1 };
+	signed char minus_two[4] = { -2, -1, -1, -1 };
 	signed char s_minus_two[4] = { -2, -1, -1, -1 };
 	unsigned char u_minus_two[4] = { 0xfe, 0xff, 0xff, 0xff };
 	ecl::from_byte_array(value, three_six_three);
