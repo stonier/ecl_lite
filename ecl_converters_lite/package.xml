@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>ecl_converters_lite</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <description>
      These are a very simple version of some of the functions in ecl_converters
      suitable for firmware development. That is, there is no use of new,
