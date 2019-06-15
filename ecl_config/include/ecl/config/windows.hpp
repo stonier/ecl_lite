@@ -29,10 +29,10 @@
   #endif
 
   #ifdef _MSC_VER
-    #pragma warning(disable: 4251)  // Disable warnings about import/exports when deriving from std classes
-    #pragma warning(disable: 4275)  // ""
-    #pragma warning (disable:4996)  // Disable warnings about deprecated ctime
-    #pragma warning (disable:4290)  // Disable warnings about unsupported c++ exception specifications
+    #pragma warning(disable:4251)  // Disable warnings about import/exports when deriving from std classes
+    #pragma warning(disable:4275)  // ""
+    #pragma warning(disable:4996)  // Disable warnings about deprecated ctime
+    #pragma warning(disable:4290)  // Disable warnings about unsupported c++ exception specifications
   #endif
 #endif
 

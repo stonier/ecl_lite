@@ -31,7 +31,7 @@
  ****************************************************************************/
 
 #if defined(ECL_IS_WIN32)
-	#include "config/windows.hpp"
+    // #include "config/windows.hpp"
 #elif defined(ECL_IS_POSIX)
     #include <unistd.h>
 #endif
