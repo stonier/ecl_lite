@@ -37,11 +37,11 @@
  * @endcode
 **/
 #if (defined __GNUC__)
-  #define ECL_DONT_INLINE __attribute__((noinline))
+    #define ECL_DONT_INLINE __attribute__((noinline))
 #elif (defined _MSC_VER)
-  #define ECL_DONT_INLINE __declspec(noinline)
+    #define ECL_DONT_INLINE __declspec(noinline)
 #else
-  #define ECL_DONT_INLINE
+    #define ECL_DONT_INLINE
 #endif
 
 /**
@@ -76,13 +76,13 @@
  * @endcode
 **/
 #if (defined __GNUC__)
-  #define ECL_DEPRECATED __attribute__((deprecated))
+    #define ECL_DEPRECATED __attribute__((deprecated))
 #elif (defined _MSC_VER)
-  #define ECL_DEPRECATED __declspec(deprecated)
+    #define ECL_DEPRECATED __declspec(deprecated)
 #elif defined(__clang__)
-  #define ECL_DEPRECATED  __attribute__((deprecated("Use of this method is deprecated")))
+    #define ECL_DEPRECATED __attribute__((deprecated("Use of this method is deprecated")))
 #else
-  #define ECL_DEPRECATED
+    #define ECL_DEPRECATED
 #endif
 
 /**
@@ -150,24 +150,23 @@
 **/
 
 #if defined(ECL_IS_WIN32) || defined(ECL_IS_CYGWIN)
-  #define ECL_HELPER_IMPORT __declspec(dllimport)
-  #define ECL_HELPER_EXPORT __declspec(dllexport)
-  #define ECL_HELPER_LOCAL
-#else
-  #if defined(ECL_IS_POSIX) && __GNUC__ >= 4
-    #define ECL_HELPER_IMPORT __attribute__ ((visibility("default")))
-    #define ECL_HELPER_EXPORT __attribute__ ((visibility("default")))
-    #define ECL_HELPER_LOCAL  __attribute__ ((visibility("hidden")))
-  #else
-    #define ECL_HELPER_IMPORT
-    #define ECL_HELPER_EXPORT
+    #define ECL_HELPER_IMPORT __declspec(dllimport)
+    #define ECL_HELPER_EXPORT __declspec(dllexport)
     #define ECL_HELPER_LOCAL
-  #endif
+#else
+    #if defined(ECL_IS_POSIX) && __GNUC__ >= 4
+        #define ECL_HELPER_IMPORT __attribute__ ((visibility("default")))
+        #define ECL_HELPER_EXPORT __attribute__ ((visibility("default")))
+        #define ECL_HELPER_LOCAL  __attribute__ ((visibility("hidden")))
+    #else
+        #define ECL_HELPER_IMPORT
+        #define ECL_HELPER_EXPORT
+        #define ECL_HELPER_LOCAL
+    #endif
 #endif
 
 // Until we depracate this entirely, need this to avoid being interpreted as a variable
 #define ECL_PUBLIC
 #define ECL_LOCAL
-
 
 #endif /* ECL_UTILITY_CONFIG_MACROS_HPP_ */

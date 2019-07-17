@@ -32,11 +32,10 @@ namespace ecl {
  *
  * @return bool : true if signed, false otherwise.
  */
-inline bool is_char_signed() {
-
+inline bool is_char_signed()
+{
     return ((CHAR_MIN == SCHAR_MIN) && (CHAR_MAX == SCHAR_MAX));
 }
-
 
 } // namespace ecl
 
