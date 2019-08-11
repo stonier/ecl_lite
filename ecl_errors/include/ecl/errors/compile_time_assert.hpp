@@ -58,7 +58,7 @@ template <int x> struct static_assert_test {};
  * the unit testing facility.
  */
 #define ecl_compile_time_assert( logical_expression ) \
-   typedef ecl::static_assert_test<sizeof(ecl::COMPILE_TIME_FAILURE< static_cast<bool>(logical_expression) >)> JOIN(compile_time_check,__LINE__)
+   typedef ecl::static_assert_test<sizeof(ecl::COMPILE_TIME_FAILURE< static_cast<bool>(logical_expression) >)> JOIN(compile_time_check,__LINE__) __attribute__((unused))
 
 /**
  * @brief Verbose compile time assert.
