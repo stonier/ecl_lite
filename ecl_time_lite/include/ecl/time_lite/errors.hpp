@@ -41,11 +41,11 @@ public:
   TimeError(const ErrorFlag& flag = UnknownError) : Error(flag) {}
 
 protected:
-  virtual const char* outOfRangeErrorString() { return "The input time sec/nsec pair was outside of the permitted range."; }
-  virtual const char* argNotSupportedErrorString() { return "The clock specified is not supported on this system."; }
-  virtual const char* permissionsErrorString() { return "You do not have permission to set the specified clock."; }
-  virtual const char* memoryErrorString() { return "One of the input arguments is not in memory addressable space."; }
-  virtual const char* interruptedErrorString() { return "This operation was interrupted by a signal."; }
+  virtual const char* outOfRangeErrorString() const { return "The input time sec/nsec pair was outside of the permitted range."; }
+  virtual const char* argNotSupportedErrorString() const { return "The clock specified is not supported on this system."; }
+  virtual const char* permissionsErrorString() const { return "You do not have permission to set the specified clock."; }
+  virtual const char* memoryErrorString() const { return "One of the input arguments is not in memory addressable space."; }
+  virtual const char* interruptedErrorString() const { return "This operation was interrupted by a signal."; }
 };
 
 } // namespace ecl
