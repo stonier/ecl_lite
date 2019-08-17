@@ -40,7 +40,7 @@ template <> struct COMPILE_TIME_FAILURE<true> {};
 
 template <int x> struct static_assert_test {};
 
-}; // namespace ecl
+} // namespace ecl
 /**
  * @endcond
  */
