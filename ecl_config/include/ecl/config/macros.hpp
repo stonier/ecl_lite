@@ -72,7 +72,7 @@
  * gnu or msvc compilers.
  *
  * @code
- * ELC_DEPRECATED void f() { std::cout << "Dude" << std::endl; }
+ * ECL_DEPRECATED void f() { std::cout << "Dude" << std::endl; }
  * @endcode
 **/
 #if (defined __GNUC__)
@@ -85,9 +85,37 @@
   #define ECL_DEPRECATED
 #endif
 
+/*****************************************************************************
+** Unused
+*****************************************************************************/
+
+/**
+ * @brief Attribute unused.
+ *
+ * Indicates a variable, type, function is unused to avoid warning checks.
+ *
+ * @code
+ * // for types
+ * typename this_foo ECL_UNUSED other_foo;
+ * // in method arguments
+ * int foo (ECL_UNUSED int bar) {
+ *   return 0;
+ * }
+ * @endcode
+**/
+#if (defined __GNUC__) || defined (__clang__)
+  #define ECL_UNUSED __attribute__ ((unused))
+#else
+  #define ECL_UNUSED
+#endif
+
 /**
  * @}
  **/
+
+/*****************************************************************************
+** Visibility
+*****************************************************************************/
 
 /**
  * @def ECL_HELPER_LOCAL

@@ -16,4 +16,5 @@ endmacro()
 
 ecl_config_add_gtest(char_sign)
 ecl_config_add_gtest(endianness)
+ecl_config_add_gtest(macros)
 ecl_config_add_gtest(portable_types)
