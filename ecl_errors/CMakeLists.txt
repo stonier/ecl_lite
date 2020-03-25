@@ -36,6 +36,11 @@ add_subdirectory(src)
 # Exports
 ##############################################################################
 
+# Downstream CMake3 compatibility 
 ament_export_interfaces(HAS_LIBRARY_TARGET ${PROJECT_NAME})
+# Downstream CMake2 compatibility
+ament_export_include_directories(include)
+ament_export_libraries(${PROJECT_NAME})
+
 ament_export_dependencies(ecl_config)
 ament_package()
