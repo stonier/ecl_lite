@@ -230,7 +230,7 @@ private:
 	 */
 	static sigslots::GlobalSlot<Data>* addSlot(void (*func)(Data)) {
 		unsigned int size = stored();
-		static sigslots::GlobalSlot<Data> slots[capacity];
+		static sigslots::GlobalSlot<Data> * slots = new sigslots::GlobalSlot<Data>[capacity];
 		for ( unsigned int i = 0; i < size; ++i ) {
 			if ( func == slots[i].global_function ) {
 				return &(slots[i]);
@@ -365,7 +365,7 @@ private:
 	 */
 	static sigslots::GlobalSlot<void>* addSlot(void (*func)(void)) {
 		unsigned int size = stored();
-		static sigslots::GlobalSlot<void> slots[capacity];
+		static sigslots::GlobalSlot<void> * slots = new sigslots::GlobalSlot<void>[capacity];
 		for ( unsigned int i = 0; i < size; ++i ) {
 			if ( func == slots[i].global_function ) {
 				return &(slots[i]);
