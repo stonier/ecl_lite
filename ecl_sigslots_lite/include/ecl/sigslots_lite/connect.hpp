@@ -112,9 +112,10 @@ sigslots::Error connect(Signal<Data,Capacity> &signal, void(FunctionClass::*f)(D
  * @param function : the global/static function to slot.
  * @return Error : the sigslots error
  */
-template <typename Data, unsigned int Capacity>
-sigslots::Error connect(Signal<Data, Capacity> &signal, void (*function)(Data)) {
-	sigslots::GlobalSlot<Data> *slot = GlobalSlots<Data>::addSlot(function);
+template <typename Data, unsigned int Capacity, typename GlobalClass>
+sigslots::Error connect(Signal<Data, Capacity> &signal, void (*function)(Data), GlobalClass &g) {
+	sigslots::GlobalSlotsBase<Data,GlobalClass> &global_slots = g;
+	sigslots::GlobalSlot<Data> *slot = global_slots.addSlot(function);
 	if ( slot != NULL ) {
 		return sigslots::connect(signal,*slot);
 	} else {
@@ -159,9 +160,10 @@ sigslots::Error connect(Signal<void, Capacity> &signal, void(FunctionClass::*fun
  * @param function : the global/static function to slot.
  * @return Error : the sigslots error
  */
-template <unsigned int Capacity>
-sigslots::Error connect(Signal<void, Capacity> &signal, void (*function)(void)) {
-	sigslots::GlobalSlot<void> *slot = GlobalSlots<void>::addSlot(function);
+template <unsigned int Capacity, typename GlobalClass>
+sigslots::Error connect(Signal<void, Capacity> &signal, void (*function)(void), GlobalClass &g) {
+	sigslots::GlobalSlotsBase<void,GlobalClass> &global_slots = g;
+	sigslots::GlobalSlot<void> *slot = global_slots.addSlot(function);
 	if ( slot != NULL ) {
 		return sigslots::connect(signal,*slot);
 	} else {

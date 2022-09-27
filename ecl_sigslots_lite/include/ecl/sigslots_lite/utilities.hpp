@@ -25,13 +25,16 @@
 namespace ecl {
 namespace lite {
 
-template <typename Data>
-unsigned int global_slots_stored() {
-	return GlobalSlots<Data>::stored();
+template <typename Data, typename GlobalClass>
+unsigned int global_slots_stored(const GlobalClass &object) {
+    const sigslots::GlobalSlotsBase<Data,GlobalClass> &global_slots = object;
+    return global_slots.stored();
 }
-template <typename Data>
-unsigned int global_slots_capacity() {
-	return GlobalSlots<Data>::capacity;
+
+template <typename Data, typename GlobalClass>
+unsigned int global_slots_capacity(const GlobalClass &object) {
+    const sigslots::GlobalSlotsBase<Data,GlobalClass> &global_slots = object;
+    return global_slots.capacity();
 }
 
 template <typename Data, typename FunctionClass>
