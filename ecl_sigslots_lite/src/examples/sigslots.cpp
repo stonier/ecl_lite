@@ -35,6 +35,13 @@ public:
 	}
 };
 
+class GlobalManager : public ecl::lite::GlobalSlots<const char*,GlobalManager,3>,
+                      public ecl::lite::GlobalSlots<void,GlobalManager,1>
+{
+public:
+    GlobalManager() {};
+};
+
 void f(const char* str) {
 	std::cout << "f(char*) " << str << std::endl;
 }
@@ -47,16 +54,6 @@ void h() {
 	std::cout << "h()" << std::endl;
 }
 
-/*****************************************************************************
-** Static Variables
-*****************************************************************************/
-
-template<>
-const unsigned int ecl::lite::GlobalSlots<const char*>::capacity = 4;
-
-template<>
-const unsigned int ecl::lite::GlobalSlots<void>::capacity = 2;
-
 /**
  * @endcond NoDoxygen
  */
@@ -68,6 +65,7 @@ const unsigned int ecl::lite::GlobalSlots<void>::capacity = 2;
 int main(int /*argc*/, char** /*argv*/) {
 
     Foo foo;
+    GlobalManager global_manager;
 
     std::cout << std::endl;
     std::cout << "***********************************************************" << std::endl;
@@ -77,11 +75,10 @@ int main(int /*argc*/, char** /*argv*/) {
 
 	ecl::lite::Signal<const char*,2> dual_slot_signal;
 	ecl::lite::Signal<const char*> lone_signal1, lone_signal2;
-	// koenig lookup means a simple connect(dual_slot_signal,f) also works
-	ecl::lite::connect(dual_slot_signal,f);
-	ecl::lite::connect(dual_slot_signal,g);
-	dual_slot_signal.emit("one signal, two global slots");
+	ecl::lite::connect(dual_slot_signal, f, global_manager);
+	ecl::lite::connect(dual_slot_signal, g, global_manager);
 	std::cout << std::endl;
+	dual_slot_signal.emit("one signal, two global slots");
 
 	ecl::lite::connect(lone_signal1,&Foo::f,foo);
 	lone_signal1.emit("direct member slot connection");
@@ -100,7 +97,7 @@ int main(int /*argc*/, char** /*argv*/) {
 
 	ecl::lite::Signal<void> void_signal, member_void_signal;
 	connect(member_void_signal,&Foo::h, foo);
-	connect(void_signal,h);
+	connect(void_signal, h, global_manager);
 	void_signal.emit();
 	member_void_signal.emit();
 
@@ -110,11 +107,11 @@ int main(int /*argc*/, char** /*argv*/) {
     std::cout << "***********************************************************" << std::endl;
     std::cout << std::endl;
 
-	std::cout << "GlobalSlots<const char*> Stored  : " << ecl::lite::global_slots_stored<const char*>() << std::endl;
-    std::cout << "GlobalSlots<const char*> Capacity: " << ecl::lite::global_slots_capacity<const char*>() << std::endl;
+	std::cout << "GlobalSlots<const char*> Stored  : " << ecl::lite::global_slots_stored<const char*>(global_manager) << std::endl;
+    std::cout << "GlobalSlots<const char*> Capacity: " << ecl::lite::global_slots_capacity<const char*>(global_manager) << std::endl;
     std::cout << std::endl;
-	std::cout << "GlobalSlots<void> Stored  : " << ecl::lite::global_slots_stored<void>() << std::endl;
-    std::cout << "GlobalSlots<void> Capacity: " << ecl::lite::global_slots_capacity<void>() << std::endl;
+	std::cout << "GlobalSlots<void> Stored  : " << ecl::lite::global_slots_stored<void>(global_manager) << std::endl;
+    std::cout << "GlobalSlots<void> Capacity: " << ecl::lite::global_slots_capacity<void>(global_manager) << std::endl;
     std::cout << std::endl;
 
 	std::cout << "MemberSlots<const char*> Stored(foo)  : " << ecl::lite::member_slots_stored<const char*>(foo) << std::endl;
@@ -128,9 +125,9 @@ int main(int /*argc*/, char** /*argv*/) {
 	std::cout << "Incrementally adding slots to signal<const char*,2>" << std::endl;
 	std::cout << "  capacity: " << signal_storage_test.capacity() << std::endl;
 	std::cout << "  stored  : " << signal_storage_test.stored() << std::endl;
-	connect(signal_storage_test,f);
+	connect(signal_storage_test,f, global_manager);
 	std::cout << "  stored  : " << signal_storage_test.stored() << std::endl;
-	connect(signal_storage_test,g);
+	connect(signal_storage_test,g, global_manager);
 	std::cout << "  stored  : " << signal_storage_test.stored() << std::endl;
     std::cout << std::endl;
 
@@ -144,12 +141,12 @@ int main(int /*argc*/, char** /*argv*/) {
     std::cout << "Adding two slots to a single slot capacity signal." << std::endl;
     ecl::lite::Signal<const char*> one_shot_signal;
     std::cout << "  Connecting a first slot" << std::endl;
-    error = connect(one_shot_signal,f);
+    error = connect(one_shot_signal,f, global_manager);
     if ( error.flag() != ecl::lite::sigslots::NoError ) {
     	std::cout << "  " << error.what() << std::endl;
     }
     std::cout << "  Connecting a second slot" << std::endl;
-    error = connect(one_shot_signal,f);
+    error = connect(one_shot_signal,f, global_manager);
     if ( error.flag() != ecl::lite::sigslots::NoError ) {
     	std::cout << "  " << error.what() << std::endl;
     }
