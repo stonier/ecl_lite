@@ -83,11 +83,15 @@
 	
 	@code
 	// allocate for global function slots with const char* and void arg footprints
-	template<> const unsigned int ecl::lite::GlobalSlots<const char*>::capacity = 4;
-	template<> const unsigned int ecl::lite::GlobalSlots<void>::capacity = 2;
-	
+	class GlobalManager : public ecl::lite::GlobalSlots<const char*,GlobalManager,3>,
+                      public ecl::lite::GlobalSlots<void,GlobalManager,1>
+    {
+    public:
+        GlobalManager() {};
+    };
 	int main() {
-	    // ...
+	    GlobalManager global_manager;
+        // ...
 	@endcode 
 
 	For member slots, your class needs to inherit from the MemberSlots interface and
@@ -120,8 +124,8 @@
 	pointers.
 	
 	@code
-	connect(signal,f);            // connecting to a global slot
-	connect(signal,&Foo::f, foo); // connecting to a member slot
+	connect(signal,f, global_manager);  // connecting to a global slot
+	connect(signal,&Foo::f, foo);       // connecting to a member slot
 	@endcode
 	
 	@subsection Utilities
@@ -130,12 +134,12 @@
 	
 	@code
 	// statistics for global slots with arg type 'const char*'
-	std::cout << ecl::lite::global_slots_stored<const char*>() << std::endl;
-	std::cout << ecl::lite::global_slots_capacity<const char*>() << std::endl;
+	std::cout << ecl::lite::global_slots_stored<const char*>(global_manager) << std::endl;
+	std::cout << ecl::lite::global_slots_capacity<const char*>(global_manager) << std::endl;
 
 	// statistics for global slots with no args
-	std::cout << ecl::lite::global_slots_stored<void>() << std::endl;
-	std::cout << ecl::lite::global_slots_capacity<void>() << std::endl;
+	std::cout << ecl::lite::global_slots_stored<void>(global_manager) << std::endl;
+	std::cout << ecl::lite::global_slots_capacity<void>(global_manager) << std::endl;
 
 	// statistics for member slots of foo with no args
 	std::cout << ecl::lite::member_slots_stored<void>(foo) << std::endl;
@@ -148,10 +152,4 @@
 	These are more of a rough coverage test.
 		
 	- src/examples/sigslots.cpp
-
-\section ChangeLog
-
-	- <b>Mar 11</b> : redesigned to be self contained.
-	- <b>Feb 11</b> : prototype implementation tested.
-
 */
