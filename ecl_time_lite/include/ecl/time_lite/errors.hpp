@@ -40,6 +40,7 @@ public:
    */
   TimeError(const ErrorFlag& flag = UnknownError) : Error(flag) {}
 
+  using Error::operator=;
 protected:
   virtual const char* outOfRangeErrorString() const { return "The input time sec/nsec pair was outside of the permitted range."; }
   virtual const char* argNotSupportedErrorString() const { return "The clock specified is not supported on this system."; }
