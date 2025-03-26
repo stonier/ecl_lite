@@ -33,6 +33,7 @@ namespace ecl {
  */
 class ecl_time_lite_PUBLIC  TimeError : public Error {
 public:
+  using Error::operator=;
   /**
    * @brief Configures the error class with the specified error flag.
    *
